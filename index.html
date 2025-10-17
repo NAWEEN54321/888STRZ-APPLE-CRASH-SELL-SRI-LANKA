@@ -304,6 +304,276 @@ document.getElementById('btnApple').addEventListener('click', ()=>handleSubmit('
 
 </script>
 </body>
+  </html></head>
+<body>
+  <main class="wrap">
+
+    <!-- ===== CRASH SECTION ===== -->
+    <section id="crash" class="section">
+      <div class="head">
+        <div class="logo crash">BYTEX</div>
+        <div>
+          <h1>888STRZ CRASH HACK APP AND KEY BUY</h1>
+          <div class="sub">Seller: K N SHASHIPRIYA — Embilipitiya — 072 132 6398</div>
+        </div>
+      </div>
+
+      <div class="note">
+        888STRZ CRASH සහ KEY ලබා ගැනීමට අවශ්‍ය නම් පහත ගිණුමට මුදල් ට්‍රාන්සර් කර
+        <b>PLAYER ID</b>, <b>දුරකථන</b>, <b>GMAIL</b> ඇතුළත් කරන්න. අසත්‍ය තොරතුරු නොදෙන්න.
+      </div>
+
+      <div class="bank">
+<pre id="bankCrash">Account Number : 050020447732
+HNB BANK
+Embilipitiya Branch (535)
+Account Holder : MR K N SHASHIPRIYA</pre>
+        <button class="copy" id="copyCrash">Copy Account Details</button>
+      </div>
+
+      <div class="counter">
+        <div class="num" id="crashCounter">100</div>
+        <div>මිලදී ගත් සාමාජිකයන් / Purchased members</div>
+      </div>
+
+      <label>PLAYER ID</label>
+      <input id="pCrash" placeholder="ඔබගේ Player ID" required>
+      <label>WhatsApp/Telephone</label>
+      <input id="phCrash" placeholder="0721326398 (or +94...)" required>
+      <label>Gmail Address</label>
+      <input id="emCrash" type="email" placeholder="example@gmail.com" required>
+
+      <label>PAYMENT RECEIPT (Upload)</label>
+      <div class="upload">
+        <input id="rcCrash" type="file" accept="image/*,application/pdf">
+        <div id="infoCrash" class="helper">No file chosen</div>
+      </div>
+
+      <button id="btnCrash" class="btn">SUBMIT NOW</button>
+      <button id="toApple" class="btn to-apple" type="button">Open APPLE Section ↓</button>
+      <div id="msgCrash" class="helper"></div>
+
+      <!-- result area for crash link/key -->
+      <div id="crashResult" class="resultBox" style="display:none">
+        <div>🔓 CRASH ACCESS READY:</div>
+        <a id="crashLink" class="link" href="#" target="_blank"></a>
+        <div id="crashKey" style="margin-top:8px;font-weight:900"></div>
+      </div>
+    </section>
+
+    <!-- ===== APPLE SECTION ===== -->
+    <section id="apple" class="section">
+      <div class="head">
+        <div class="logo apple">APPLE</div>
+        <div>
+          <h1>888STRZ APPLE HACK APP AND KEY</h1>
+          <div class="sub">Seller: K N SHASHIPRIYA — Embilipipitiya — 072 132 6398</div>
+        </div>
+      </div>
+
+      <div class="note">APPLE HACK සහ KEY ලබා ගැනීමටද එම ගිණුම භාවිත කරන්න.</div>
+
+      <div class="bank">
+<pre id="bankApple">Account Number : 050020447732
+HNB BANK
+Embilipitiya Branch (535)
+Account Holder : MR K N SHASHIPRIYA</pre>
+        <button class="copy" id="copyApple">Copy Account Details</button>
+      </div>
+
+      <div class="counter">
+        <div class="num" id="appleCounter">100</div>
+        <div>මිලදී ගත් සාමාජිකයන් / Purchased members</div>
+      </div>
+
+      <label>PLAYER ID</label>
+      <input id="pApple" placeholder="ඔබගේ Player ID" required>
+      <label>WhatsApp/Telephone</label>
+      <input id="phApple" placeholder="0721326398 (or +94...)" required>
+      <label>Gmail Address</label>
+      <input id="emApple" type="email" placeholder="example@gmail.com" required>
+
+      <label>PAYMENT RECEIPT (Upload)</label>
+      <div class="upload">
+        <input id="rcApple" type="file" accept="image/*,application/pdf">
+        <div id="infoApple" class="helper">No file chosen</div>
+      </div>
+
+      <button id="btnApple" class="btn">SUBMIT NOW</button>
+      <div id="msgApple" class="helper"></div>
+
+      <!-- result area for apple link/key -->
+      <div id="appleResult" class="resultBox" style="display:none">
+        <div>🔓 APPLE ACCESS:</div>
+        <a id="appleLink" class="link" href="#" target="_blank"></a>
+        <div id="appleKey" style="margin-top:8px;font-weight:900"></div>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+/* ================== CONFIG (EDIT THESE) ================== */
+// ⚠️ Exposing token in HTML is insecure. Prefer a backend (recommended).
+// Replace with your real values if testing only:
+const TELEGRAM_BOT_TOKEN = "8249357052:AAFbDtIMh_LrbbOmeNN21kysBeATxxOSi5Y";
+const TELEGRAM_CHAT_ID   = "7465787436";
+/* ======================================================== */
+
+// Copy buttons
+document.getElementById('copyCrash').onclick=()=>navigator.clipboard.writeText(document.getElementById('bankCrash').innerText);
+document.getElementById('copyApple').onclick=()=>navigator.clipboard.writeText(document.getElementById('bankApple').innerText);
+
+// File info labels
+function wireFile(id,info){const i=document.getElementById(id),n=document.getElementById(info);
+  i.addEventListener('change',e=>{const f=e.target.files[0];n.textContent=f?`${f.name} (${Math.round(f.size/1024)} KB)`:'No file chosen';});
+}
+wireFile('rcCrash','infoCrash'); wireFile('rcApple','infoApple');
+
+// Very slow counters (every 60s) - keep original logic
+function superSlowCounter(id,start,end,steps=[2,5,4,6,8],intervalSec=60){
+  const el=document.getElementById(id); let v=start, i=0;
+  function tick(){ let inc; i<steps.length ? inc=steps[i++] : inc=Math.floor(Math.random()*6)+1;
+    v=Math.min(end,v+inc); el.textContent=v; if(v>=end) return; setTimeout(tick,intervalSec*1000); }
+  el.textContent=start; setTimeout(tick,intervalSec*1000);
+}
+window.addEventListener('load', ()=>{
+  superSlowCounter('crashCounter',100,1000,[2,5,4,6,8],60);
+  setTimeout(()=>superSlowCounter('appleCounter',100,1000,[2,5,4,6,8],60),10000);
+});
+
+// Smooth scroll to Apple
+document.getElementById('toApple').onclick=()=>document.getElementById('apple').scrollIntoView({behavior:'smooth',block:'start'});
+
+// ===== Telegram helpers =====
+const API = (method)=>`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/${method}`;
+
+// send text
+async function tgSendMessage(text){
+  const res = await fetch(API('sendMessage'),{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({chat_id: TELEGRAM_CHAT_ID, text})
+  });
+  return res.json();
+}
+
+// send file (image/pdf)
+async function tgSendDocument(file, caption){
+  const fd = new FormData();
+  fd.append('chat_id', TELEGRAM_CHAT_ID);
+  fd.append('document', file, file.name);
+  if (caption) fd.append('caption', caption);
+  const res = await fetch(API('sendDocument'), { method:'POST', body: fd });
+  return res.json();
+}
+
+// build message text (use simple prefixes 'CRASH' or 'APPLE')
+function buildMessage(prefix){
+  if(prefix==='crash'){
+    const p = document.getElementById('pCrash').value || '';
+    const ph= document.getElementById('phCrash').value || '';
+    const em= document.getElementById('emCrash').value || '';
+    return `CRASH SUBMISSION\n\nPlayer ID: ${p}\nPhone: ${ph}\nEmail: ${em}`;
+  } else {
+    const p = document.getElementById('pApple').value || '';
+    const ph= document.getElementById('phApple').value || '';
+    const em= document.getElementById('emApple').value || '';
+    return `APPLE SUBMISSION\n\nPlayer ID: ${p}\nPhone: ${ph}\nEmail: ${em}`;
+  }
+}
+
+// show result helpers
+function showCrashResult(){
+  const box = document.getElementById('crashResult');
+  const a = document.getElementById('crashLink');
+  const k = document.getElementById('crashKey');
+  a.href = 'https://www.thanosx.icu/appv2/';
+  a.textContent = 'https://www.thanosx.icu/appv2/';
+  k.textContent = 'KEY: F57D6-1F0B2-C077A-C3DD5';
+  box.style.display='block';
+  // optionally scroll into view
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function showAppleResult(){
+  const box = document.getElementById('appleResult');
+  const a = document.getElementById('appleLink');
+  const k = document.getElementById('appleKey');
+  a.href = 'https://thanosx.icu/apple/';
+  a.textContent = 'https://thanosx.icu/apple/';
+  k.textContent = 'KEY: 3A5F6-53C88-46E59-60580';
+  box.style.display='block';
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+// generic submit
+async function handleSubmit(prefix, fileInputId, msgId){
+  const msgEl = document.getElementById(msgId);
+  // pick elements depending on prefix
+  const player = (prefix==='crash') ? document.getElementById('pCrash').value.trim() : document.getElementById('pApple').value.trim();
+  const phone  = (prefix==='crash') ? document.getElementById('phCrash').value.trim() : document.getElementById('phApple').value.trim();
+  const email  = (prefix==='crash') ? document.getElementById('emCrash').value.trim() : document.getElementById('emApple').value.trim();
+  const btn = (prefix==='crash') ? document.getElementById('btnCrash') : document.getElementById('btnApple');
+
+  if(!player || !phone || !email){ msgEl.textContent='Player ID, Phone, Email අවශ්‍යයි.'; return; }
+
+  // disable button to avoid spamming
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  msgEl.textContent='Sending to Telegram...';
+
+  const text = buildMessage(prefix);
+  try{
+    // send message
+    const sent = await tgSendMessage(text);
+    // basic check for ok
+    if(!sent || sent.ok===false){ throw new Error('tg sendMessage failed'); }
+
+    // if file provided, send document
+    const file = document.getElementById(fileInputId).files[0];
+    if(file){
+      const docRes = await tgSendDocument(file, `${prefix.toUpperCase()} receipt for ${player}`);
+      if(!docRes || docRes.ok===false){
+        // non-fatal: still proceed but inform
+        console.warn('document send failed', docRes);
+      }
+    }
+
+    msgEl.textContent='✅ Sent to Telegram.';
+
+    // Now show keys/links:
+    if(prefix==='apple'){
+      // show immediately
+      showAppleResult();
+      // re-enable button after short delay so user can update if needed
+      setTimeout(()=>{ btn.disabled=false; btn.style.opacity='1'; }, 5000);
+    } else {
+      // CRASH: show after 2 minutes (120000 ms)
+      msgEl.textContent='✅ Sent. CRASH link & key will display in 2 minutes.';
+      // clear any previous display first
+      document.getElementById('crashResult').style.display='none';
+      setTimeout(()=>{
+        showCrashResult();
+        msgEl.textContent='🔓 CRASH link & key displayed.';
+        // re-enable submit button
+        btn.disabled=false; btn.style.opacity='1';
+      }, 120000); // 120000 ms = 2 minutes
+    }
+
+  }catch(e){
+    console.error(e);
+    msgEl.textContent='❌ Error sending to Telegram.';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+}
+
+// wire buttons
+document.getElementById('btnCrash').addEventListener('click', ()=>handleSubmit('crash','rcCrash','msgCrash'));
+document.getElementById('btnApple').addEventListener('click', ()=>handleSubmit('apple','rcApple','msgApple'));
+
+</script>
+</body>
   </html>  <main class="wrap">
 
     <!-- ===== CRASH SECTION ===== -->
